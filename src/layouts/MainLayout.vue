@@ -12,10 +12,8 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          學習風格測驗
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
@@ -26,17 +24,14 @@
       content-class="bg-grey-1"
     >
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <q-item class="big" to ="/">
+          <q-icon name = "pan_tool"/>
+          小測驗
+        </q-item>
+        <q-item class="big" to ="/game">
+          <q-icon name = "send"/>
+          小遊戲
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -140,3 +135,9 @@ export default {
   }
 }
 </script>
+
+<style type="text/css">
+  .big {
+    font-size: 22px;
+  }
+</style>

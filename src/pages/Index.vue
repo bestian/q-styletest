@@ -1,14 +1,14 @@
 <template lang="pug">
-  .hello
+  .q-pa-md
     .ui.container(v-show = "step == -1 || step == 0")
       .slide(v-show = "step == -1")
         #start
           h3 歡迎使用學習風格自我測驗
-          q-btn(v-tap @click = "step=0") 按此開始測驗
+          q-btn(size="xl", v-tap @click = "step=0") 按此開始測驗
 
     .ui.form.slide.container(v-show="step == 0")
         .ui.segment.repeated-item(v-for="(q, idx) in qs")
-          h4.ui.dividing.header {{idx}}. {{q.t}} (可複選)
+          h5.ui.dividing.header {{idx}}. {{q.t}} (可複選)
           br
           .field
             .list(v-for="(c,index) in q.cs")
@@ -17,7 +17,9 @@
                   input(type="checkbox" v-model = "q.checked[index]")
                   label {{c}}
 
-        a.ui.huge.green.top.attached.button(tabindex="0" @click="step = 1") 看結果!
+        br
+
+        q-btn(color="primary", size="xl", tabindex="0" @click="step = 1") 看結果!
         .ui.attached.segment
 
     #resault.ui.segment.slide2(v-show="step == 1")
@@ -146,16 +148,8 @@ p, label {
 .ui.container, .slide {
 }
 
-#start {
-  position: relative;
-  top: 25vh;
-  display: block;
-  height: 3em;
-  margin: auto;
-}
-
-.hello {
-  margin-top: 100px;
+input {
+  margin: 0 .5em;
 }
 
 </style>
